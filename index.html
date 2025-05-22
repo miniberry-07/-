@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기본 HTML 문서</title>
+</head>
+<body>
+  <h1>안녕하세요!</h1>
+  <p>이것은 HTML 기본 구조입니다.</p>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>로또 번호 추첨기</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .lotto-number {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      margin: 5px;
+      border-radius: 50%;
+      background-color: #f2c94c;
+      color: #000;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 로또 번호 추첨기 🎉</h1>
+  <p>버튼을 눌러 오늘의 행운 번호를 뽑아보세요!</p>
+  <div id="lotto-result"></div>
+  <button onclick="drawLotto()">번호 추첨하기</button>
+
+  <script>
+    function drawLotto() {
+      const numbers = [];
+      while (numbers.length < 6) {
+        const num = Math.floor(Math.random() * 45) + 1;
+        if (!numbers.includes(num)) {
+          numbers.push(num);
+        }
+      }
+      numbers.sort((a, b) => a - b);
+
+      const resultDiv = document.getElementById("lotto-result");
+      resultDiv.innerHTML = ""; // 초기화
+
+      numbers.forEach(num => {
+        const ball = document.createElement("div");
+        ball.className = "lotto-number";
+        ball.textContent = num;
+        resultDiv.appendChild(ball);
+      });
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>무지개 로또 번호 추첨기</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .lotto-number {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      margin: 5px;
+      border-radius: 50%;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌈 무지개 로또 번호 추첨기 🌈</h1>
+  <p>버튼을 눌러 오늘의 행운 번호를 확인하세요!</p>
+  <div id="lotto-result"></div>
+  <button onclick="drawLotto()">번호 추첨하기</button>
+
+  <script>
+    function drawLotto() {
+      const numbers = [];
+      while (numbers.length < 6) {
+        const num = Math.floor(Math.random() * 45) + 1;
+        if (!numbers.includes(num)) {
+          numbers.push(num);
+        }
+      }
+      numbers.sort((a, b) => a - b);
+
+      const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+      const resultDiv = document.getElementById("lotto-result");
+      resultDiv.innerHTML = "";
+
+      numbers.forEach((num, index) => {
+        const ball = document.createElement("div");
+        ball.className = "lotto-number";
+        ball.style.backgroundColor = colors[index % colors.length]; // 무지개 순환
+        ball.textContent = num;
+        resultDiv.appendChild(ball);
+      });
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>카지노 로또 추첨기</title>
+  <style>
+    body {
+      background-color: #000; /* 카지노 느낌의 어두운 배경 */
+      color: #FFD700; /* 금색 글씨 */
+      font-family: 'Arial Black', sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #FFD700;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    .lotto-number {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      margin: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFD700, #B8860B);
+      color: #000;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700 inset;
+    }
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      background: linear-gradient(to right, #FFD700, #DAA520);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 0 10px #FFD700;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎰 카지노 로또 추첨기 🎰</h1>
+  <p>행운의 숫자를 뽑아보세요!</p>
+  <div id="lotto-result"></div>
+  <button onclick="drawLotto()">번호 추첨하기</button>
+
+  <script>
+    function drawLotto() {
+      const numbers = [];
+      while (numbers.length < 6) {
+        const num = Math.floor(Math.random() * 45) + 1;
+        if (!numbers.includes(num)) {
+          numbers.push(num);
+        }
+      }
+      numbers.sort((a, b) => a - b);
+
+      const resultDiv = document.getElementById("lotto-result");
+      resultDiv.innerHTML = "";
+
+      numbers.forEach(num => {
+        const ball = document.createElement("div");
+        ball.className = "lotto-number";
+        ball.textContent = num;
+        resultDiv.appendChild(ball);
+      });
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>카지노 로또 추첨기</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #FFD700;
+      font-family: 'Arial Black', sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #FFD700;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    .lotto-number {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      margin: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFD700, #B8860B);
+      color: #000;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700 inset;
+      animation: sparkle 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes sparkle {
+      0% {
+        box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700 inset;
+        transform: scale(1);
+      }
+      100% {
+        box-shadow: 0 0 20px #fff200, 0 0 30px #fff200 inset;
+        transform: scale(1.1);
+      }
+    }
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      background: linear-gradient(to right, #FFD700, #DAA520);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 0 10px #FFD700;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎰 카지노 로또 추첨기 🎰</h1>
+  <p>행운의 숫자를 뽑아보세요!</p>
+  <div id="lotto-result"></div>
+  <button onclick="drawLotto()">번호 추첨하기</button>
+
+  <script>
+    function drawLotto() {
+      const numbers = [];
+      while (numbers.length < 6) {
+        const num = Math.floor(Math.random() * 45) + 1;
+        if (!numbers.includes(num)) {
+          numbers.push(num);
+        }
+      }
+      numbers.sort((a, b) => a - b);
+
+      const resultDiv = document.getElementById("lotto-result");
+      resultDiv.innerHTML = "";
+
+      numbers.forEach(num => {
+        const ball = document.createElement("div");
+        ball.className = "lotto-number";
+        ball.textContent = num;
+        resultDiv.appendChild(ball);
+      });
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>카지노 로또 추첨기</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #FFD700;
+      font-family: 'Arial Black', sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #FFD700;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    .lotto-number {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      margin: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFD700, #B8860B);
+      color: #000;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700 inset;
+      animation: sparkle 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes sparkle {
+      0% {
+        box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700 inset;
+        transform: scale(1);
+      }
+      100% {
+        box-shadow: 0 0 20px #fff200, 0 0 30px #fff200 inset;
+        transform: scale(1.1);
+      }
+    }
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      background: linear-gradient(to right, #FFD700, #DAA520);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 0 10px #FFD700;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    /* 🎆 폭죽 애니메이션 */
+    .firework {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background-color: #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: explode 1s ease-out forwards;
+      z-index: 9999;
+    }
+
+    @keyframes explode {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(0.2);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎰 카지노 로또 추첨기 🎰</h1>
+  <p>행운의 숫자를 뽑아보세요!</p>
+  <div id="lotto-result"></div>
+  <button onclick="drawLotto()">번호 추첨하기</button>
+
+  <script>
+    function drawLotto() {
+      // 로또 번호 추첨
+      const numbers = [];
+      while (numbers.length < 6) {
+        const num = Math.floor(Math.random() * 45) + 1;
+        if (!numbers.includes(num)) {
+          numbers.push(num);
+        }
+      }
+      numbers.sort((a, b) => a - b);
+
+      const resultDiv = document.getElementById("lotto-result");
+      resultDiv.innerHTML = "";
+
+      numbers.forEach(num => {
+        const ball = document.createElement("div");
+        ball.className = "lotto-number";
+        ball.textContent = num;
+        resultDiv.appendChild(ball);
+      });
+
+      // 폭죽 효과 시작
+      launchFireworks();
+    }
+
+    function launchFireworks() {
+      for (let i = 0; i < 30; i++) {
+        const fw = document.createElement("div");
+        fw.className = "firework";
+        fw.style.left = Math.random() * window.innerWidth + "px";
+        fw.style.top = Math.random() * window.innerHeight / 2 + "px";
+        fw.style.backgroundColor = randomColor();
+        fw.style.setProperty('--x', (Math.random() * 200 - 100) + 'px');
+        fw.style.setProperty('--y', (Math.random() * 200 - 100) + 'px');
+        document.body.appendChild(fw);
+        setTimeout(() => fw.remove(), 1000); // 1초 후 제거
+      }
+    }
+
+    function randomColor() {
+      const colors = ['#FFD700', '#FF69B4', '#00FFFF', '#00FF00', '#FF4500', '#ffffff'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>카지노 로또 추첨기</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial Black', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+      color: #FFD700;
+      position: relative;
+      background-color: #000; /* 검정 배경 */
+    }
+
+    h1 {
+      font-size: 2.8em;
+      text-shadow: 0 0 15px #FFD700, 0 0 30px #FF4500;
+      margin-top: 50px;
+    }
+
+    p {
+      font-size: 1.3em;
+      text-shadow: 0 0 5px #fff;
+    }
+
+    .lotto-number {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      margin: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFD700, #B8860B);
+      color: #000;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700 inset;
+      animation: sparkle 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes sparkle {
+      0% {
+        box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700 inset;
+        transform: scale(1);
+      }
+      100% {
+        box-shadow: 0 0 20px #fff200, 0 0 30px #fff200 inset;
+        transform: scale(1.1);
+      }
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      background: linear-gradient(to right, #FFD700, #DAA520);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 0 10px #FFD700;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    /* 🎆 폭죽 애니메이션 */
+    .firework {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background-color: #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: explode 1s ease-out forwards;
+      z-index: 9999;
+    }
+
+    @keyframes explode {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(0.2);
+      }
+    }
+
+    /* 💥 섬광 효과 */
+    #flash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: white;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10000;
+      transition: opacity 0.2s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎰 카지노 로또 추첨기 🎰</h1>
+  <p>행운의 숫자를 뽑아보세요!</p>
+  <div id="lotto-result"></div>
+  <button onclick="drawLotto()">번호 추첨하기</button>
+
+  <!-- 섬광 요소 -->
+  <div id="flash"></div>
+
+  <script>
+    function drawLotto() {
+      flashEffect(); // 섬광 효과 먼저 실행
+
+      const numbers = [];
+      while (numbers.length < 6) {
+        const num = Math.floor(Math.random() * 45) + 1;
+        if (!numbers.includes(num)) {
+          numbers.push(num);
+        }
+      }
+      numbers.sort((a, b) => a - b);
+
+      const resultDiv = document.getElementById("lotto-result");
+      resultDiv.innerHTML = "";
+
+      numbers.forEach(num => {
+        const ball = document.createElement("div");
+        ball.className = "lotto-number";
+        ball.textContent = num;
+        resultDiv.appendChild(ball);
+      });
+
+      launchFireworks();
+    }
+
+    function launchFireworks() {
+      for (let i = 0; i < 30; i++) {
+        const fw = document.createElement("div");
+        fw.className = "firework";
+        fw.style.left = Math.random() * window.innerWidth + "px";
+        fw.style.top = Math.random() * window.innerHeight / 2 + "px";
+        fw.style.backgroundColor = randomColor();
+        fw.style.setProperty('--x', (Math.random() * 200 - 100) + 'px');
+        fw.style.setProperty('--y', (Math.random() * 200 - 100) + 'px');
+        document.body.appendChild(fw);
+        setTimeout(() => fw.remove(), 1000);
+      }
+    }
+
+    function randomColor() {
+      const colors = ['#FFD700', '#FF69B4', '#00FFFF', '#00FF00', '#FF4500', '#ffffff'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // 💥 섬광 효과 함수
+    function flashEffect() {
+      const flash = document.getElementById("flash");
+      flash.style.opacity = "1";
+      setTimeout(() => {
+        flash.style.opacity = "0";
+      }, 100);
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>카지노 로또 추첨기</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial Black', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+      color: #FFD700;
+      position: relative;
+      background-color: #000; /* 검정 배경 */
+    }
+
+    h1 {
+      font-size: 2.8em;
+      text-shadow: 0 0 15px #FFD700, 0 0 30px #FF4500;
+      margin-top: 50px;
+    }
+
+    p {
+      font-size: 1.3em;
+      text-shadow: 0 0 5px #fff;
+    }
+
+    .lotto-number {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      margin: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFD700, #B8860B);
+      color: #000;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700 inset;
+      animation: sparkle 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes sparkle {
+      0% {
+        box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700 inset;
+        transform: scale(1);
+      }
+      100% {
+        box-shadow: 0 0 20px #fff200, 0 0 30px #fff200 inset;
+        transform: scale(1.1);
+      }
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      background: linear-gradient(to right, #FFD700, #DAA520);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 0 10px #FFD700;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    /* 🎆 폭죽 애니메이션 */
+    .firework {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background-color: #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: explode 1s ease-out forwards;
+      z-index: 9999;
+    }
+
+    @keyframes explode {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(0.2);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎰 카지노 로또 추첨기 🎰</h1>
+  <p>행운의 숫자를 뽑아보세요!</p>
+  <div id="lotto-result"></div>
+  <button onclick="drawLotto()">번호 추첨하기</button>
+
+  <script>
+    function drawLotto() {
+      const numbers = [];
+      while (numbers.length < 6) {
+        const num = Math.floor(Math.random() * 45) + 1;
+        if (!numbers.includes(num)) {
+          numbers.push(num);
+        }
+      }
+      numbers.sort((a, b) => a - b);
+
+      const resultDiv = document.getElementById("lotto-result");
+      resultDiv.innerHTML = "";
+
+      numbers.forEach(num => {
+        const ball = document.createElement("div");
+        ball.className = "lotto-number";
+        ball.textContent = num;
+        resultDiv.appendChild(ball);
+      });
+
+      launchFireworks();
+    }
+
+    function launchFireworks() {
+      for (let i = 0; i < 30; i++) {
+        const fw = document.createElement("div");
+        fw.className = "firework";
+        fw.style.left = Math.random() * window.innerWidth + "px";
+        fw.style.top = Math.random() * window.innerHeight / 2 + "px";
+        fw.style.backgroundColor = randomColor();
+        fw.style.setProperty('--x', (Math.random() * 200 - 100) + 'px');
+        fw.style.setProperty('--y', (Math.random() * 200 - 100) + 'px');
+        document.body.appendChild(fw);
+        setTimeout(() => fw.remove(), 1000);
+      }
+    }
+
+    function randomColor() {
+      const colors = ['#FFD700', '#FF69B4', '#00FFFF', '#00FF00', '#FF4500', '#ffffff'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+</body>
+</html>
